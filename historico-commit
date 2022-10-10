@@ -1,0 +1,8 @@
+10/10/2022
+"macro-excel.py"
+1. está lendo planilha
+2. automatizando tarefas (guardando os dados solicitados pelo cliente num dicionário)
+3. exportando resultado para novo sheet do mesmo arquivo .xlsx
+
+Pendências:
+1. Organizar dados de saída conforme solicitação do cliente
