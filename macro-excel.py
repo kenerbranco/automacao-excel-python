@@ -27,10 +27,14 @@ max_col = index.max_column
 
 def extDados(l):
     lst = list()
-    for la in range(l, l+5):
+    for la in range(l, l+5):  # Armazena cinco medições do ponto
         cel = index.cell(row=la, column=7)
         val = cel.value
         lst.append(val)
+    cel_unidade = index.cell(row=l, column=9)  # Unidade medida do ponto
+    cel_dif = index.cell(row=l, column=11)  # Diferença em porcentagem da última medição
+    lst.append(cel_unidade.value)
+    lst.append(cel_dif.value)
     return lst
 
 
@@ -76,10 +80,17 @@ for l in range(1, max_lin+1):
 
 final = book['Final']
 
+lin_final = col_final = 1
+
+# Gravação dados novo sheet "final"
 for ponto in maq_final:
     for k, v in ponto.items():
-        final.append([k])
+        final.cell(row=lin_final, column=col_final).value = k
+        col_final += 1
         for medida in v:
-            final.append([medida])
+            final.cell(row=lin_final, column=col_final).value = medida
+            col_final += 1
+    lin_final += 1
+    col_final = 1
 
 book.save('teste-saida.xlsx')

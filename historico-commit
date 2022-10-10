@@ -1,5 +1,15 @@
 10/10/2022
 "macro-excel.py"
+Realizado:
+1. atualizado função extDados(): adicionado armazenamento da unidade de medida do ponto e diferença em porcentagem da última medição.
+2. atualizado sheet "final" com formatação conforme solicitado pelo cliente
+
+Pendência:
+1. Adicionar linha 1 em sheet "final" com células no formato "dd/mm/aaa 00:00" (coluna 7 da carcaça como referência)
+
+
+09/10/2022
+"macro-excel.py"
 1. está lendo planilha
 2. automatizando tarefas (guardando os dados solicitados pelo cliente num dicionário)
 3. exportando resultado para novo sheet do mesmo arquivo .xlsx
