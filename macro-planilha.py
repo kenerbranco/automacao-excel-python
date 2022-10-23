@@ -19,11 +19,21 @@ book = openpyxl.load_workbook("Relatório Aptitude.xlsx")
 
 # Atribuindo sheets em variáveis
 index = book['index']
-book.create_sheet('Final')
+book.create_sheet('tabela-final')
 
 # maximo de linhas e colunas
 max_lin = index.max_row
 max_col = index.max_column
+
+def extCabecalho(l):  # Armazena dados cabeçalho
+    lst = list()
+    for la in range(l, l+5):
+        cel = index.cell(row=la, column=15)
+        val = cel.value
+        lst.append(val)
+    lst.append('Unidade')
+    return lst
+
 
 def extDados(l):
     lst = list()
@@ -46,40 +56,39 @@ for l in range(1, max_lin+1):
         valor = str(celula.value).split()
         if 'Ae3' in valor:
             maq['Motor/Axial(envelope)'] = extDados(l)
-            maq_final.insert(0, maq.copy())
+            maq_final.insert(1, maq.copy())
         elif 'Av+' in valor:
             maq['Motor/Axial'] = extDados(l)
-            maq_final.insert(1, maq.copy())
+            maq_final.insert(2, maq.copy())
         elif 'He3' in valor:
             maq['Motor/Radial(envelope)'] = extDados(l)
-            maq_final.insert(2, maq.copy())
+            maq_final.insert(3, maq.copy())
         elif 'Hv+' in valor:
             maq['Motor/Radial'] = extDados(l)
-            maq_final.insert(3, maq.copy())
-        elif 'Radial' in valor:
-            maq['Carcaça/Radial'] = extDados(l)
             maq_final.insert(4, maq.copy())
+        elif 'Radial' in valor:
+            maq['Ponto'] = extCabecalho(l)
+            maq_final.insert(0, maq.copy())
+            maq.clear()
+            maq['Carcaça/Radial'] = extDados(l)
+            maq_final.insert(5, maq.copy())
         elif 'Axial' in valor:
             maq['Carcaça/Axial'] = extDados(l)
-            maq_final.insert(5, maq.copy())
+            maq_final.insert(6, maq.copy())
         elif 'LAe3+' in valor:
             maq['Lewa/Atuem/Axial(envelope)'] = extDados(l)
-            maq_final.insert(6, maq.copy())
+            maq_final.insert(7, maq.copy())
         elif 'LAv+' in valor:
             maq['Lewa/Atuem/Axial'] = extDados(l)
-            maq_final.insert(7, maq.copy())
+            maq_final.insert(8, maq.copy())
         elif 'LRe3+' in valor:
             maq['Lewa/Atuem/Radial(envelope)'] = extDados(l)
-            maq_final.insert(8, maq.copy())
+            maq_final.insert(9, maq.copy())
         elif 'LRv+' in valor:
             maq['Leva/Atuem/Radial'] = extDados(l)
-            maq_final.insert(9, maq.copy())
+            maq_final.insert(10, maq.copy())
 
-#for v in maq_final:
-#    print(f'{v}')
-
-final = book['Final']
-
+final = book['tabela-final']
 lin_final = col_final = 1
 
 # Gravação dados novo sheet "final"
@@ -93,4 +102,4 @@ for ponto in maq_final:
     lin_final += 1
     col_final = 1
 
-book.save('teste-saida.xlsx')
+book.save('Tabela Final.xlsx')
