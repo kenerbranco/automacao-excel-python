@@ -11,11 +11,13 @@ LRe3+ - Lewa/Atuem/Radial(envelope)
 LRv+ - Lewa/Atuem/Radial
 """
 import openpyxl
+from datetime import date
+
 maq = dict()
 maq_final = list()
 
 # Leitura arquivo .xlsx
-book = openpyxl.load_workbook("Relatório Aptitude.xlsx")
+book = openpyxl.load_workbook("index.xlsx")
 
 # Atribuindo sheets em variáveis
 index = book['index']
@@ -48,6 +50,14 @@ def extDados(l):
     return lst
 
 
+def nomeArq(l):  # Armeza nome do equipamento para salvar planilha posteriormente
+    cel_nome = index.cell(row=l, column=1)
+    valor = cel_nome.value.split()
+    data = date.today()
+    nome = valor[0] + '-' + valor[1] + '-' + str(data)
+    return nome
+
+
 # Programa principal
 for l in range(1, max_lin+1):
     for c in range(1, max_col):
@@ -72,6 +82,7 @@ for l in range(1, max_lin+1):
             maq.clear()
             maq['Carcaça/Radial'] = extDados(l)
             maq_final.insert(5, maq.copy())
+            nome_arq = nomeArq(l)  # Captura nome do arquivo
         elif 'Axial' in valor:
             maq['Carcaça/Axial'] = extDados(l)
             maq_final.insert(6, maq.copy())
@@ -102,4 +113,4 @@ for ponto in maq_final:
     lin_final += 1
     col_final = 1
 
-book.save('Tabela Final.xlsx')
+book.save(f'{nome_arq}.xlsx')
