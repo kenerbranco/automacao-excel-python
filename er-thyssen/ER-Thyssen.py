@@ -112,11 +112,17 @@ def extDados(l):
     return lst
 
 
-def nomeArq(l):  # Armeza nome do equipamento para salvar planilha posteriormente
+def nomeArq(l):  # Armazena nome do equipamento para salvar planilha posteriormente
     cel_nome = index.cell(row=l, column=1)
     valor = cel_nome.value.split()
     data = date.today()
-    nome = valor[0] + '-' + valor[2] + '-' + str(data)
+    nome = valor[1] + '-' + valor[2] + '-' + valor[3] + '-' + str(data)
+    return nome
+
+
+def nomeArqErr(): # Armazena nome padrão caso dê erro "def nomeArq()"
+    data = date.today()
+    nome = str(data)
     return nome
 
 
@@ -154,10 +160,19 @@ try: # Extração dos pontos
             valor = str(celula.value).split()
 
             # Extração dados Motor 01
-            if ('1Hv+' in valor) and (valorMotor[0] == 'MOT1'):
+            if ('1Hv+' in valor) and ('MOT1' in valorMotor):
                 maq['1H - motor radial'] = extDados(l)
                 maq_final[1] = maq.copy()
-            elif '1Av' in valor: #### TODO ####
+
+            #### TODO 
+                
+                    # Testar novo if com '1Hv+' do MOT2
+                    # Incluir 'nome_arq' no if 'Radial'
+            ####
+
+                nome_arq = nomeArq(l)  # Captura nome do arquivo
+            """    
+            elif '1Av' in valor:
                 maq['1A-Motor Axial'] = extDados(l)
                 maq_final[2] = maq.copy()
             elif '1He3' in valor:
@@ -194,6 +209,7 @@ try: # Extração dos pontos
             elif 'BASE04' in valor:
                 maq['Base-04'] = extDados(l)
                 maq_final[12] = maq.copy()
+            """
 except:
     print('  => [ ERRO ] - Extração dos pontos')
 else:
@@ -239,6 +255,8 @@ sleep(0.8)
 try: # Salvar arquivo formato xlsx
     book.save(f'{nome_arq}.xlsx')
 except:
+    dataName = nomeArqErr()
+    book.save(f'{dataName}.xlsx')
     print('  => [ ERRO ] - Criação novo arquivo ".xlsx"')
 else:
     print('  => [ OK ] - Criação novo arquivo ".xlsx"')
