@@ -15,7 +15,19 @@ from datetime import date
 from time import sleep
 
 maq = dict()
-maq_final = list()
+maq_final = [   
+                {'Ponto' : [0,0,0,0,0,'Alteração','Unidade','Última medição']}, 
+                {'Motor/Axial (envelope)' : [0,0,0,0,0,0,0,0]}, 
+                {'Motor/Axial' : [0,0,0,0,0,0,0,0]}, 
+                {'Motor/Radial (envelope)' : [0,0,0,0,0,0,0,0]}, 
+                {'Motor/Radial' : [0,0,0,0,0,0,0,0]}, 
+                {'Carcaça/Radial' : [0,0,0,0,0,0,0,0]}, 
+                {'Carcaça/Axial' : [0,0,0,0,0,0,0,0]},
+                {'Lewa/Atuem/Axial(envelope)' : [0,0,0,0,0,0,0,0]}, 
+                {'Lewa/Atuem/Axial' : [0,0,0,0,0,0,0,0]}, 
+                {'Lewa/Atuem/Radial(envelope)' : [0,0,0,0,0,0,0,0]}, 
+                {'Lewa/Atuem/Radial' : [0,0,0,0,0,0,0,0]}
+            ]
 
 # Leitura arquivo .xlsx
 book = openpyxl.load_workbook("index.xlsx")
@@ -35,6 +47,8 @@ def extCabecalho(l):  # Armazena dados cabeçalho
         val = cel.value
         lst.append(val)
     lst.append('Unidade')
+    lst.append('Alteração')
+    lst.append('Última medição')
     return lst
 
 
@@ -46,16 +60,25 @@ def extDados(l):
         lst.append(val)
     cel_unidade = index.cell(row=l, column=9)  # Unidade medida do ponto
     cel_dif = index.cell(row=l, column=11)  # Diferença em porcentagem da última medição
+    cel_ultMedicao = index.cell(row=l, column=5)  # Data última medição
     lst.append(cel_unidade.value)
     lst.append(cel_dif.value)
+    lst.append(cel_ultMedicao.value)
     return lst
 
 
 def nomeArq(l):  # Armeza nome do equipamento para salvar planilha posteriormente
     cel_nome = index.cell(row=l, column=1)
     valor = cel_nome.value.split()
+    cel_ultMedicao = index.cell(row=l, column=5)
+    data = str(cel_ultMedicao.value).replace('/', '-')
+    nome = valor[0] + '-' + valor[1] + '-' + data[:10]
+    return nome
+
+
+def nomeArqErr(): # Armazena nome padrão caso dê erro "def nomeArq()"
     data = date.today()
-    nome = valor[0] + '-' + valor[1] + '-' + str(data)
+    nome = str(data)
     return nome
 
 
@@ -87,38 +110,38 @@ try: # Extração dos pontos
             valor = str(celula.value).split()
             if 'Ae3' in valor:
                 maq['Motor/Axial(envelope)'] = extDados(l)
-                maq_final.insert(1, maq.copy())
-            elif 'Av+' in valor:
+                maq_final[1] = maq.copy()
+            if 'Av+' in valor:
                 maq['Motor/Axial'] = extDados(l)
-                maq_final.insert(2, maq.copy())
-            elif 'He3' in valor:
+                maq_final[2] = maq.copy()
+            if 'He3' in valor:
                 maq['Motor/Radial(envelope)'] = extDados(l)
-                maq_final.insert(3, maq.copy())
-            elif 'Hv+' in valor:
+                maq_final[3] = maq.copy()
+            if 'Hv+' in valor:
                 maq['Motor/Radial'] = extDados(l)
-                maq_final.insert(4, maq.copy())
-            elif 'Radial' in valor:
+                maq_final[4] = maq.copy()
+            if 'Radial' in valor:
                 maq['Ponto'] = extCabecalho(l)
-                maq_final.insert(0, maq.copy())
+                maq_final[0] = maq.copy()
                 maq.clear()
                 maq['Carcaça/Radial'] = extDados(l)
-                maq_final.insert(5, maq.copy())
+                maq_final[5] = maq.copy()
                 nome_arq = nomeArq(l)  # Captura nome do arquivo
-            elif 'Axial' in valor:
+            if 'Axial' in valor:
                 maq['Carcaça/Axial'] = extDados(l)
-                maq_final.insert(6, maq.copy())
-            elif 'LAe3+' in valor:
+                maq_final[6] = maq.copy()
+            if 'LAe3+' in valor:
                 maq['Lewa/Atuem/Axial(envelope)'] = extDados(l)
-                maq_final.insert(7, maq.copy())
-            elif 'LAv+' in valor:
+                maq_final[7] = maq.copy()
+            if 'LAv+' in valor:
                 maq['Lewa/Atuem/Axial'] = extDados(l)
-                maq_final.insert(8, maq.copy())
-            elif 'LRe3+' in valor:
+                maq_final[8] = maq.copy()
+            if 'LRe3+' in valor:
                 maq['Lewa/Atuem/Radial(envelope)'] = extDados(l)
-                maq_final.insert(9, maq.copy())
-            elif 'LRv+' in valor:
+                maq_final[9] = maq.copy()
+            if 'LRv+' in valor:
                 maq['Leva/Atuem/Radial'] = extDados(l)
-                maq_final.insert(10, maq.copy())
+                maq_final[10] = maq.copy()
 except:
     print('  => [ ERRO ] - Extração dos pontos')
 else:
@@ -137,10 +160,21 @@ try: # Gravação dados novo sheet "final"
                 col_final += 1
         lin_final += 1
         col_final = 1
+except:
+    print('  => [ ERRO ] - Criação tabela-final')
+else:
+    print('  => [ OK ] - Criação tabela-final')
+
+sleep(0.8)
+try: # Salvar arquivo formato xlsx
     book.save(f'{nome_arq}.xlsx')
 except:
-    print('  => [ ERRO ] - Criação novo arquivo ".xlsx"')
+    dataName = nomeArqErr()
+    book.save(f'{dataName}.xlsx')
+    print('  => [ ERRO ] - Criação novo arquivo nome estação".xlsx"')
+    print('     => [ OK ] - Criação novo arquivo ".xlsx" c/ data atual')
 else:
     print('  => [ OK ] - Criação novo arquivo ".xlsx"')
+
 print('-' * 42)
 input('<< Pressione qualquer tecla para sair >>')
