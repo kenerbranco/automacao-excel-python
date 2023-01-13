@@ -31,50 +31,52 @@ maq = dict()
 
 # ER01
 maq_final = [   
-                {'1H - motor radial' : [0,0,0,0,0,0,0]}, 
-                {'1H - motor radial (env)' : [0,0,0,0,0,0,0]}, 
-                {'2A - motor axial' : [0,0,0,0,0,0,0]}, 
-                {'2A - motor axial (env)' : [0,0,0,0,0,0,0]}, 
-                {'2H - motor radial' : [0,0,0,0,0,0,0]}, 
-                {'2H - motor radial (env)' : [0,0,0,0,0,0,0]},
-                {'3A - redutor axial' : [0,0,0,0,0,0,0]}, 
-                {'3A - redutor axial (env)' : [0,0,0,0,0,0,0]}, 
-                {'3H - redutor radial' : [0,0,0,0,0,0,0]}, 
-                {'3H - redutor radial (env)' : [0,0,0,0,0,0,0]},
-                {'4A - redutor axial' : [0,0,0,0,0,0,0]}, 
-                {'4A - redutor axial (env)' : [0,0,0,0,0,0,0]}, 
-                {'4H - redutor radial' : [0,0,0,0,0,0,0]}, 
-                {'4H - redutor radial (env)' : [0,0,0,0,0,0,0]}, 
-                {'5A - redutor axial' : [0,0,0,0,0,0,0]}, 
-                {'5A - redutor axial (env)' : [0,0,0,0,0,0,0]},
-                {'5H - redutor radial' : [0,0,0,0,0,0,0]}, 
-                {'5H - redutor radial (env)' : [0,0,0,0,0,0,0]}, 
-                {'6H - redutor radial' : [0,0,0,0,0,0,0]}, 
-                {'6H - redutor radial (env)' : [0,0,0,0,0,0,0]}
+                {'Ponto' : [0,0,0,0,0,'Alteração','Unidade','Última medição']}, 
+                {'1H - motor radial' : [0,0,0,0,0,0,0,0]}, 
+                {'1H - motor radial (env)' : [0,0,0,0,0,0,0,0]}, 
+                {'2A - motor axial' : [0,0,0,0,0,0,0,0]}, 
+                {'2A - motor axial (env)' : [0,0,0,0,0,0,0,0]}, 
+                {'2H - motor radial' : [0,0,0,0,0,0,0,0]}, 
+                {'2H - motor radial (env)' : [0,0,0,0,0,0,0,0]},
+                {'3A - redutor axial' : [0,0,0,0,0,0,0,0]}, 
+                {'3A - redutor axial (env)' : [0,0,0,0,0,0,0,0]}, 
+                {'3H - redutor radial' : [0,0,0,0,0,0,0,0]}, 
+                {'3H - redutor radial (env)' : [0,0,0,0,0,0,0,0]},
+                {'4A - redutor axial' : [0,0,0,0,0,0,0,0]}, 
+                {'4A - redutor axial (env)' : [0,0,0,0,0,0,0,0]}, 
+                {'4H - redutor radial' : [0,0,0,0,0,0,0,0]}, 
+                {'4H - redutor radial (env)' : [0,0,0,0,0,0,0,0]}, 
+                {'5A - redutor axial' : [0,0,0,0,0,0,0,0]}, 
+                {'5A - redutor axial (env)' : [0,0,0,0,0,0,0,0]},
+                {'5H - redutor radial' : [0,0,0,0,0,0,0,0]}, 
+                {'5H - redutor radial (env)' : [0,0,0,0,0,0,0,0]}, 
+                {'6H - redutor radial' : [0,0,0,0,0,0,0,0]}, 
+                {'6H - redutor radial (env)' : [0,0,0,0,0,0,0,0]}
             ]
 
 # ER02
 maq_final2 = [  
-                {'1H - motor radial' : [0,0,0,0,0,0,0]}, 
-                {'1H - motor radial (env)' : [0,0,0,0,0,0,0]}, 
-                {'2A - motor axial' : [0,0,0,0,0,0,0]}, 
-                {'2A - motor axial (env)' : [0,0,0,0,0,0,0]}, 
-                {'2H - motor radial' : [0,0,0,0,0,0,0]}, 
-                {'2H - motor radial (env)' : [0,0,0,0,0,0,0]},
-                {'3A - redutor axial' : [0,0,0,0,0,0,0]}, 
-                {'3A - redutor axial (env)' : [0,0,0,0,0,0,0]}, 
-                {'3H - redutor radial' : [0,0,0,0,0,0,0]}, 
-                {'3H - redutor radial (env)' : [0,0,0,0,0,0,0]},
-                {'4A - redutor axial' : [0,0,0,0,0,0,0]}, 
-                {'4A - redutor axial (env)' : [0,0,0,0,0,0,0]}, 
-                {'4H - redutor radial' : [0,0,0,0,0,0,0]}, 
-                {'4H - redutor radial (env)' : [0,0,0,0,0,0,0]}, 
-                {'5A - redutor axial' : [0,0,0,0,0,0,0]}, 
-                {'5A - redutor axial (env)' : [0,0,0,0,0,0,0]},
-                {'5H - redutor radial' : [0,0,0,0,0,0,0]}, 
-                {'5H - redutor radial (env)' : [0,0,0,0,0,0,0]}, 
-                {'6H - redutor radial' : [0,0,0,0,0,0,0]}, 
-                {'6H - redutor radial (env)' : [0,0,0,0,0,0,0]}
+                {'Ponto' : [0,0,0,0,0,'Alteração','Unidade','Última medição']}, 
+                {'1H - motor radial' : [0,0,0,0,0,0,0,0]}, 
+                {'1H - motor radial (env)' : [0,0,0,0,0,0,0,0]}, 
+                {'2A - motor axial' : [0,0,0,0,0,0,0,0]}, 
+                {'2A - motor axial (env)' : [0,0,0,0,0,0,0,0]}, 
+                {'2H - motor radial' : [0,0,0,0,0,0,0,0]}, 
+                {'2H - motor radial (env)' : [0,0,0,0,0,0,0,0]},
+                {'3A - redutor axial' : [0,0,0,0,0,0,0,0]}, 
+                {'3A - redutor axial (env)' : [0,0,0,0,0,0,0,0]}, 
+                {'3H - redutor radial' : [0,0,0,0,0,0,0,0]}, 
+                {'3H - redutor radial (env)' : [0,0,0,0,0,0,0,0]},
+                {'4A - redutor axial' : [0,0,0,0,0,0,0,0]}, 
+                {'4A - redutor axial (env)' : [0,0,0,0,0,0,0,0]}, 
+                {'4H - redutor radial' : [0,0,0,0,0,0,0,0]}, 
+                {'4H - redutor radial (env)' : [0,0,0,0,0,0,0,0]}, 
+                {'5A - redutor axial' : [0,0,0,0,0,0,0,0]}, 
+                {'5A - redutor axial (env)' : [0,0,0,0,0,0,0,0]},
+                {'5H - redutor radial' : [0,0,0,0,0,0,0,0]}, 
+                {'5H - redutor radial (env)' : [0,0,0,0,0,0,0,0]}, 
+                {'6H - redutor radial' : [0,0,0,0,0,0,0,0]}, 
+                {'6H - redutor radial (env)' : [0,0,0,0,0,0,0,0]}
             ]
 
 # Leitura arquivo .xlsx
@@ -96,6 +98,8 @@ def extCabecalho(l):  # Armazena dados cabeçalho
         val = cel.value
         lst.append(val)
     lst.append('Unidade')
+    lst.append('Alteração')
+    lst.append('Última medição')
     return lst
 
 
@@ -107,16 +111,19 @@ def extDados(l):
         lst.append(val)
     cel_unidade = index.cell(row=l, column=9)  # Unidade medida do ponto
     cel_dif = index.cell(row=l, column=11)  # Diferença em porcentagem da última medição
+    cel_ultMedicao = index.cell(row=l, column=5)  # Data última medição
     lst.append(cel_unidade.value)
     lst.append(cel_dif.value)
+    lst.append(cel_ultMedicao.value)
     return lst
 
 
 def nomeArq(l):  # Armazena nome do equipamento para salvar planilha posteriormente
     cel_nome = index.cell(row=l, column=1)
     valor = cel_nome.value.split()
-    data = date.today()
-    nome = valor[1] + '-' + valor[2] + '-' + valor[3] + '-' + str(data)
+    cel_ultMedicao = index.cell(row=l, column=5)
+    data = str(cel_ultMedicao.value).replace('/', '-')
+    nome = valor[1] + '-' + valor[2] + '-' + valor[3] + '-' + data
     return nome
 
 
@@ -161,8 +168,12 @@ try: # Extração dos pontos
 
             # Extração dados Motor 01
             if ('1Hv+' in valor) and ('MOT1' in valorMotor):
+                maq['Ponto'] = extCabecalho(l)
+                maq_final[0] = maq.copy()
+                maq.clear()
                 maq['1H - motor radial'] = extDados(l)
                 maq_final[1] = maq.copy()
+                nome_arq = nomeArq(l) # Captura nome do arquivo
             if ('1He3' in valor) and ('MOT1' in valorMotor):
                 maq['1H - motor radial (env)'] = extDados(l)
                 maq_final[2] = maq.copy()
@@ -223,6 +234,9 @@ try: # Extração dos pontos
 
             # Extração dados Motor 02
             if ('1Hv+' in valor) and ('MOT2' in valorMotor):
+                maq['Ponto'] = extCabecalho(l)
+                maq_final2[0] = maq.copy()
+                maq.clear()
                 maq['1H - motor radial'] = extDados(l)
                 maq_final2[1] = maq.copy()
             if ('1He3' in valor) and ('MOT2' in valorMotor):
@@ -282,54 +296,6 @@ try: # Extração dos pontos
             if ('6He3' in valor) and ('RED2' in valorMotor):
                 maq['6H - redutor radial (env)'] = extDados(l)
                 maq_final2[20] = maq.copy()
-
-            #### TODO ####
-
-                    # Checar erro extração dados
-                    # Incluir 'nome_arq' no if 'Radial'
-                    # Trocar data do 'nome_arq' para data da última medição
-            ####
-
-                nome_arq = nomeArq(l)  # Captura nome do arquivo
-            """    
-            elif '1Av' in valor:
-                maq['1A-Motor Axial'] = extDados(l)
-                maq_final[2] = maq.copy()
-            elif '1He3' in valor:
-                maq['1H-Motor Radial (env.)'] = extDados(l)
-                maq_final[3] = maq.copy()
-            elif '1Hv+' in valor:
-                maq['1H-Motor Radial'] = extDados(l)
-                maq_final[4] = maq.copy()
-            elif '2Ve3+' in valor:
-                maq['2H-Motor Radial (env.)'] = extDados(l)
-                maq_final[5] = maq.copy()
-            elif '2Vv' in valor:
-                maq['2H-Motor Radial'] = extDados(l)
-                maq_final[6] = maq.copy()
-            elif 'Axial' in valor:
-                maq['Carc.Axial-Central'] = extDados(l)
-                maq_final[7] = maq.copy()
-            elif 'Radial' in valor:
-                maq['Ponto'] = extCabecalho(l)
-                maq_final[0] = maq.copy()
-                maq.clear()
-                maq['Carc.Radial-Central'] = extDados(l)
-                maq_final[8] = maq.copy()
-                nome_arq = nomeArq(l)  # Captura nome do arquivo
-            elif 'BASE01' in valor:
-                maq['Base-01'] = extDados(l)
-                maq_final[9] = maq.copy()
-            elif 'BASE02' in valor:
-                maq['Base-02'] = extDados(l)
-                maq_final[10] = maq.copy()
-            elif 'BASE03' in valor:
-                maq['Base-03'] = extDados(l)
-                maq_final[11] = maq.copy()
-            elif 'BASE04' in valor:
-                maq['Base-04'] = extDados(l)
-                maq_final[12] = maq.copy()
-            """
 except:
     print('  => [ ERRO ] - Extração dos pontos')
 else:
@@ -377,7 +343,8 @@ try: # Salvar arquivo formato xlsx
 except:
     dataName = nomeArqErr()
     book.save(f'{dataName}.xlsx')
-    print('  => [ ERRO ] - Criação novo arquivo ".xlsx"')
+    print('  => [ ERRO ] - Criação novo arquivo nome estação".xlsx"')
+    print('     => [ OK ] - Criação novo arquivo ".xlsx" c/ data atual')
 else:
     print('  => [ OK ] - Criação novo arquivo ".xlsx"')
 
