@@ -123,7 +123,7 @@ def nomeArq(l):  # Armazena nome do equipamento para salvar planilha posteriorme
     valor = cel_nome.value.split()
     cel_ultMedicao = index.cell(row=l, column=5)
     data = str(cel_ultMedicao.value).replace('/', '-')
-    nome = valor[1] + '-' + valor[2] + '-' + valor[3] + '-' + data
+    nome = valor[1] + '-' + valor[2] + '-' + valor[3] + '-' + data[:10]
     return nome
 
 
