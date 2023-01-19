@@ -167,78 +167,78 @@ try: # Extração dos pontos
             valor = str(celula.value).split()
 
             # Extração dados Motor 01
-            if ('1Hv+' in valor) and ('MOT1' in valorMotor):
+            if ('1Hv+' in valor) and ('MOT1' or 'MOT' in valorMotor):
                 maq['Ponto'] = extCabecalho(l)
                 maq_final[0] = maq.copy()
                 maq.clear()
                 maq['1H - motor radial'] = extDados(l)
                 maq_final[1] = maq.copy()
                 nome_arq = nomeArq(l) # Captura nome do arquivo
-            if ('1He3' in valor) and ('MOT1' in valorMotor):
+            if ('1He3' in valor) and ('MOT1' or 'MOT' in valorMotor):
                 maq['1H - motor radial (env)'] = extDados(l)
                 maq_final[2] = maq.copy()
-            if ('2Av' in valor) and ('MOT1' in valorMotor):
+            if ('2Av' in valor) and ('MOT1' or 'MOT' in valorMotor):
                 maq['2A - motor axial'] = extDados(l)
                 maq_final[3] = maq.copy()
-            if ('2Ae3' in valor) and ('MOT1' in valorMotor):
+            if ('2Ae3' in valor) and ('MOT1' or 'MOT' in valorMotor):
                 maq['2A - motor axial (env)'] = extDados(l)
                 maq_final[4] = maq.copy()
-            if ('2Hv' in valor) and ('MOT1' in valorMotor):
+            if ('2Hv' in valor) and ('MOT1' or 'MOT' in valorMotor):
                 maq['2H - motor radial'] = extDados(l)
                 maq_final[5] = maq.copy()
-            if ('2He3' in valor) and ('MOT1' in valorMotor):
+            if ('2He3' in valor) and ('MOT1' or 'MOT' in valorMotor):
                 maq['2H - motor radial (env)'] = extDados(l)
                 maq_final[6] = maq.copy()
-            if ('3Av' in valor) and ('RED1' in valorMotor):
+            if ('3Av' in valor) and ('RED1' or 'RED' in valorMotor):
                 maq['3A - redutor axial'] = extDados(l)
                 maq_final[7] = maq.copy()
-            if ('3Ae3' in valor) and ('RED1' in valorMotor):
+            if ('3Ae3' in valor) and ('RED1' or 'RED' in valorMotor):
                 maq['3A - redutor axial (env)'] = extDados(l)
                 maq_final[8] = maq.copy()
-            if ('3Hv' in valor) and ('RED1' in valorMotor):
+            if ('3Hv' in valor) and ('RED1' or 'RED' in valorMotor):
                 maq['3H - redutor radial'] = extDados(l)
                 maq_final[9] = maq.copy()
-            if ('3He3' in valor) and ('RED1' in valorMotor):
+            if ('3He3' in valor) and ('RED1' or 'RED' in valorMotor):
                 maq['3H - redutor radial (env)'] = extDados(l)
                 maq_final[10] = maq.copy()
-            if ('4Av' in valor) and ('RED1' in valorMotor):
+            if ('4Av' in valor) and ('RED1' or 'RED' in valorMotor):
                 maq['4A - redutor axial'] = extDados(l)
                 maq_final[11] = maq.copy()
-            if ('4Ae3' in valor) and ('RED1' in valorMotor):
+            if ('4Ae3' in valor) and ('RED1' or 'RED' in valorMotor):
                 maq['4A - redutor axial (env)'] = extDados(l)
                 maq_final[12] = maq.copy()
-            if ('4Hv' in valor) and ('RED1' in valorMotor):
+            if ('4Hv' in valor) and ('RED1' or 'RED' in valorMotor):
                 maq['4H - redutor radial'] = extDados(l)
                 maq_final[13] = maq.copy()
-            if ('4He3' in valor) and ('RED1' in valorMotor):
+            if ('4He3' in valor) and ('RED1' or 'RED' in valorMotor):
                 maq['4H - redutor radial (env)'] = extDados(l)
                 maq_final[14] = maq.copy()
-            if ('5Av' in valor) and ('RED1' in valorMotor):
+            if ('5Av' in valor) and ('RED1' or 'RED' in valorMotor):
                 maq['5A - redutor axial'] = extDados(l)
                 maq_final[15] = maq.copy()
-            if ('5Ae3' in valor) and ('RED1' in valorMotor):
+            if ('5Ae3' in valor) and ('RED1' or 'RED' in valorMotor):
                 maq['5A - redutor axial (env)'] = extDados(l)
                 maq_final[16] = maq.copy()
-            if ('5Hv' in valor) and ('RED1' in valorMotor):
+            if ('5Hv' in valor) and ('RED1' or 'RED' in valorMotor):
                 maq['5H - redutor radial'] = extDados(l)
                 maq_final[17] = maq.copy()
-            if ('5He3' in valor) and ('RED1' in valorMotor):
+            if ('5He3' in valor) and ('RED1' or 'RED' in valorMotor):
                 maq['5H - redutor radial (env)'] = extDados(l)
                 maq_final[18] = maq.copy()
-            if ('6Hv' in valor) and ('RED1' in valorMotor):
+            if ('6Hv' in valor) and ('RED1' or 'RED' in valorMotor):
                 maq['6H - redutor radial'] = extDados(l)
                 maq_final[19] = maq.copy()
-            if ('6He3' in valor) and ('RED1' in valorMotor):
+            if ('6He3' in valor) and ('RED1' or 'RED' in valorMotor):
                 maq['6H - redutor radial (env)'] = extDados(l)
                 maq_final[20] = maq.copy()
 
             # Extração dados Motor 02
             if ('1Hv+' in valor) and ('MOT2' in valorMotor):
-                maq['Ponto'] = extCabecalho(l)
-                maq_final2[0] = maq.copy()
-                maq.clear()
                 maq['1H - motor radial'] = extDados(l)
                 maq_final2[1] = maq.copy()
+                maq.clear()
+                maq['Ponto'] = extCabecalho(l)
+                maq_final2[0] = maq.copy()
             if ('1He3' in valor) and ('MOT2' in valorMotor):
                 maq['1H - motor radial (env)'] = extDados(l)
                 maq_final2[2] = maq.copy()
